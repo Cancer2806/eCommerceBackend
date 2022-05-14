@@ -6,13 +6,39 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 // get all products
 router.get('/', (req, res) => {
   // find all products
-  // be sure to include its associated Category and Tag data
+  Product.findAll({
+    // be sure to include its associated Category and Tag data
+    include: [
+      {
+        model: Category
+      },
+      {
+        model: Tag,
+        as: "tagged_products"
+      }
+    ]
+  }).then((products) => {
+    res.json(products);
+  })
 });
 
 // get one product
 router.get('/:id', (req, res) => {
   // find a single product by its `id`
-  // be sure to include its associated Category and Tag data
+  Product.findByPk(req.params.id, {
+    // be sure to include its associated Category and Tag data
+    include: [
+      {
+        model: Category
+      },
+      {
+        model: Tag,
+        as: "tagged_products"
+      }
+    ]
+  }).then((product) => {
+    res.json(product);
+  })
 });
 
 // create new product
@@ -25,13 +51,18 @@ router.post('/', (req, res) => {
       tagIds: [1, 2, 3, 4]
     }
   */
-  Product.create(req.body)
+  Product.create({
+    product_name: req.body.product_name,
+    price: req.body.price,
+    stock: req.body.stock,
+    category_id: req.body.category_id,
+  })
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
       if (req.body.tagIds.length) {
         const productTagIdArr = req.body.tagIds.map((tag_id) => {
           return {
-            product_id: product.id,
+            product_id: product_id,
             tag_id,
           };
         });

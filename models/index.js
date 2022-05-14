@@ -19,19 +19,21 @@ Category.hasMany(Product, {
 // Products belongToMany Tags (through ProductTag)
 Product.belongsToMany(Tag, {
   through: {
-  model: ProductTag,
+    model: ProductTag,
+    foreignKey: "product_id",
     Unique: false
   },
-  // TODO decide if an alias is needed
+  as: "tagged_products"
 });
 
 // Tags belongToMany Products (through ProductTag)
 Tag.belongsToMany(Product, {
   through: {
     model: ProductTag,
+    foreignKey: "tag_id",
     Unique: false
   },
-  // TODO decide if an alias is needed
+  as: "gummybear"
 });
 
 // Export model relationships
