@@ -12,8 +12,8 @@ Product.belongsTo(Category, {
 // Categories have many Products
 Category.hasMany(Product, {
   foreignKey: 'category_id',
-  // Do not want to allow category to be deleted if there are still products in it
-  onDelete: 'NOACTION',
+  // Do not allow category to be deleted if there are still products in it
+  onDelete: 'NO ACTION',
 });
 
 // Products belongToMany Tags (through ProductTag)
@@ -21,9 +21,9 @@ Product.belongsToMany(Tag, {
   through: {
     model: ProductTag,
     foreignKey: "product_id",
-    Unique: false
+    // Unique: false
   },
-  as: "tagged_products"
+  as: "tag_product"
 });
 
 // Tags belongToMany Products (through ProductTag)
@@ -31,9 +31,9 @@ Tag.belongsToMany(Product, {
   through: {
     model: ProductTag,
     foreignKey: "tag_id",
-    Unique: false
+    // Unique: false
   },
-  as: "gummybear"
+   as: "tag_product"
 });
 
 // Export model relationships
