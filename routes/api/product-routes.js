@@ -80,7 +80,6 @@ router.post('/', (req, res) => {
     })
     .then((productTagIds) => res.status(200).json(productTagIds))
     .catch((err) => {
-      console.log(err);
       res.status(400).json(err);
     });
 });
@@ -96,9 +95,7 @@ router.put('/:id', (req, res) => {
     category_id: req.body.category_id
   },
     {
-      where: {
-        id: req.params.id,
-      }
+      where: { id: req.params.id, }
     })
     .then((product) => {
       // find all associated tags from ProductTag
@@ -129,7 +126,6 @@ router.put('/:id', (req, res) => {
     })
     .then((updatedProductTags) => res.json(updatedProductTags))
     .catch((err) => {
-      // console.log(err);
       res.status(400).json(err);
     });
 });
@@ -138,9 +134,7 @@ router.delete('/:id', async (req, res) => {
   // delete one product by its `id` value
   try {
     const productData = await Product.destroy({
-      where: {
-        id: req.params.id
-      }
+      where: { id: req.params.id, }
     });
     if (!productData) {
       res.status(400).json({ message: 'No product found with this id!' });
