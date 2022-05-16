@@ -1,10 +1,15 @@
+// Module to control seeding logic
+
+// Define required seed modules
 const seedCategories = require('./category-seeds');
 const seedProducts = require('./product-seeds');
 const seedTags = require('./tag-seeds');
 const seedProductTags = require('./product-tag-seeds');
 
+// Import database connection from config.js
 const sequelize = require('../config/connection');
 
+// Generate table data
 const seedAll = async () => {
   await sequelize.sync({ force: true });
   console.log('\n----- DATABASE SYNCED -----\n');

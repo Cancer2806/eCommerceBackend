@@ -1,12 +1,14 @@
-// import required parts of sequelize library
+// Module to define the Tag table model
+
+// Import the required parts of sequelize library
 const { Model, DataTypes } = require('sequelize');
-// import database connection from config.js
+// Import database connection from config.js
 const sequelize = require('../config/connection.js');
 
 // Initialize Tag model (table) by extending off Sequelize's Model class
 class Tag extends Model {}
 
-// setup tag model
+// Define the Tag model
 Tag.init(
   {
     id: {

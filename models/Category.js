@@ -1,12 +1,14 @@
-// import required parts of sequelize library
+// Module to define the Category table model
+
+// Import the required parts of sequelize library
 const { Model, DataTypes } = require('sequelize');
-// import database connection from config.js
+// Import database connection from config.js
 const sequelize = require('../config/connection.js');
 
 // Initialize Category model (table) by extending off Sequelize's Model class
 class Category extends Model { }
 
-// setup category model
+// Define the Category model
 Category.init(
   {
     id: {

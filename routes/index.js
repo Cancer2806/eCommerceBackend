@@ -2,6 +2,7 @@
 const router = require('express').Router();
 const apiRoutes = require('./api');
 
+// Define route
 router.use('/api', apiRoutes);
 
 // Default action if no routes found

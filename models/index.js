@@ -1,4 +1,6 @@
-// import models
+// Module defining the relationships between the tables
+
+// Import table models
 const Product = require('./Product');
 const Category = require('./Category');
 const Tag = require('./Tag');
@@ -19,16 +21,16 @@ Category.hasMany(Product, {
 // Products belongToMany Tags (through ProductTag)
 Product.belongsToMany(Tag, {
   through: ProductTag,
-    foreignKey: "product_id",
-    // Unique: false
-  as: "tag_product",
+  foreignKey: "product_id",
+    unique: false,
+    as: "tag_product",
 });
 
 // Tags belongToMany Products (through ProductTag)
 Tag.belongsToMany(Product, {
   through: ProductTag,
   foreignKey: "tag_id",
-  // Unique: false
+  unique: false,
   as: "tag_product",
 });
 

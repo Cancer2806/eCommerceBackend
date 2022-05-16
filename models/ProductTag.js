@@ -1,12 +1,14 @@
-// import required parts of sequelize library
+// Module to define the table tracking many to many relationship Prouct / Tag
+
+// Import the required parts of sequelize library
 const { Model, DataTypes } = require('sequelize');
-// import database connection from config.js
+// Import database connection from config.js
 const sequelize = require('../config/connection');
 
 // Initialize Product_Tag model (table) by extending off Sequelize's Model class
 class ProductTag extends Model { }
 
-// Setup ProductTags Model
+// Define foreign keys for Product and Tag
 ProductTag.init(
   {
     id: {

@@ -1,14 +1,14 @@
-// import required parts of sequelize library
+// Module to define the Product table model
+
+// Import the required parts of sequelize library
 const { Model, DataTypes } = require('sequelize');
-// import database connection from config.js
+// Import database connection from config.js
 const sequelize = require('../config/connection');
 
 // Initialize Product model (table) by extending off Sequelize's Model class
 class Product extends Model {}
 
-// setup Product model
-// TODO confirm references unique false or true
-// TODO confirm if need reference also in Category model - don't think so
+// Define the Product model
 Product.init(
   {
     id: {

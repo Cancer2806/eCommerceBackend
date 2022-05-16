@@ -1,3 +1,5 @@
+// Module to seed the Product Tag table (holds the many to many relationship data)
+
 const { ProductTag } = require('../models');
 
 const productTagData = [
