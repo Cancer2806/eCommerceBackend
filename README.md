@@ -40,7 +40,7 @@ Provides the backend access to a mysql database, including creating and seeding 
 
 ## Credits  
 
-  Node, Sequelize, Mysql2 were fundamental to the development.  Screencastify was used to create the Walkthrough video.  The project was developed as an assignment of the UWA Full Stack Developer Bootcamp.   
+  Node, Sequelize, Mysql2, Express, dotenv, and of course Insomnia were fundamental to the development.  Screencastify was used to create the Walkthrough video.  The project was developed as an assignment of the UWA Full Stack Developer Bootcamp.   
 
 
 ## Contributing  
