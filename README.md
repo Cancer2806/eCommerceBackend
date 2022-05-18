@@ -29,6 +29,8 @@ Provides the backend access to a mysql database, including creating and seeding 
 ## Usage 
 
   The backend operation can be tested using Insomnia or similar software.  Provides CRUD operations for Categories, Products and Product Tags, using the appropriate GET, POST, PUT and DELETE routes.   
+  The repository is held at:  https://github.com/Cancer2806/eCommerceBackend   
+  There is a walkthrough video at:  https://drive.google.com/file/d/1RxJMRkA038veYHLueH4sVBAzuk4PUm8r/view?usp=sharing which demonstrates how to create the database and access the data via the routes.
 
 
 ## Features  
